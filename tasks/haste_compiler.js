@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 
         for( var key in options ) {
             var value = options[key];
-            if( key = "cleanBlobs" ) {
+            if( key === "cleanBlobs" ) {
                 cleanBlobs = value;
             } else {
                 if( value !== false ) {

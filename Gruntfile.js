@@ -48,6 +48,7 @@ module.exports = function(grunt) {
       all: {
         options: {
             cleanBlobs: true,
+            "opt-all": true,
         },
         files: {
           'tmp/all.js': ['test/fixtures/*.hs'],
