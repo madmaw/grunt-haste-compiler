@@ -1,7 +1,7 @@
 {
   "name": "grunt-haste-compiler",
   "description": "Grunt plugin for the Hr, turns Haskell into JavaScript",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/madmaw/grunt-haste-compiler",
   "author": {
     "name": "Chris Glover",
