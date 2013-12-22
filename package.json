@@ -1,0 +1,45 @@
+{
+  "name": "grunt-haste-compiler",
+  "description": "Grunt plugin for the Hr, turns Haskell into JavaScript",
+  "version": "0.1.0",
+  "homepage": "https://github.com/madmaw/grunt-haste-compiler",
+  "author": {
+    "name": "Chris Glover",
+    "email": "chris.glover@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/madmaw/grunt-haste-compiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madmaw/grunt-haste-compiler/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/madmaw/grunt-haste-compiler/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "shelljs": "~0.2.6"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
