@@ -34,11 +34,41 @@ module.exports = function(grunt) {
             } else {
                 if( value !== false ) {
                     // just add the option as is
-                    var arg = " --"+key;
-                    if( value !== true ) {
-                        arg += "="+value;
+                    var prefix;
+                    var infix;
+                    if(
+                        key === "odir" ||
+                        key === "hidir" ||
+                        key === "v" ||
+                        key === "no-link" ||
+                        key === "O" ||
+                        key === "static" ||
+                        key === "stubdir"
+                    ) {
+                        infix = " ";
+                        prefix = "-";
+                    } else if( key === "i" || key === "I" || key === "opt" || key === "X" || key === "f" ) {
+                        infix = "";
+                        prefix = "-";
+                    } else {
+                        infix = "=";
+                        prefix = "--";
                     }
-                    args.push(arg);
+                    var values;
+                    if( Object.prototype.toString.call( value ) === '[object Array]' ) {
+                        values = value;
+                    } else {
+                        values = [value];
+                    }
+                    for( var i in values ) {
+                        var v = values[i];
+                        var arg = " "+prefix+key;
+                        if( v !== true ) {
+                            // is value an array?
+                            arg += infix+v;
+                        }
+                        args.push(arg);
+                    }
                 }
             }
         }
@@ -99,7 +129,6 @@ module.exports = function(grunt) {
                         var dotIndex = file.lastIndexOf(".");
                         if( dotIndex >= 0 ) {
                             var filePrefix = file.substring(0, dotIndex+1);
-                            grunt.verbose.writeln(filePrefix);
                             var hiFile = filePrefix + "hi";
                             var oFile = filePrefix + "o";
                             if( grunt.file.exists(hiFile) ) {
