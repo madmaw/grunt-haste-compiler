@@ -1,0 +1,17 @@
+name: grunt-haste-compiler-test
+version: 0.0.1
+cabal-version: >=1.2
+build-type: Simple
+license: AllRightsReserved
+license-file: ""
+description:
+data-dir: ""
+
+executable tictactoe-haskell-web
+    build-depends:
+        base < 5,
+        haste-lib -any
+    main-is: HelloWorld.hs
+    buildable: True
+    hs-source-dirs: .
+

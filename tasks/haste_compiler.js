@@ -15,7 +15,31 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-    grunt.registerMultiTask('hastec', 'Grunt plugin for the Haste Compiler, turns Haskell into JavaScript', function() {
+    grunt.registerMultiTask("haste-inst", "Grunt plugin for the Haste package manager, does various build-related tasks", function() {
+        var options = this.options({
+            cmd: "build"
+        });
+
+        if( !shell.which("haste-inst")) {
+            grunt.fail.fatal("haste-inst must be installed");
+        }
+
+        var oldcwd = shell.pwd();
+        var cmd = "haste-inst "+options["cmd"];
+        var cwd = options["cwd"];
+        if( cwd ) {
+            shell.cd(cwd);
+        }
+        var done = this.async();
+        shell.exec(cmd, function(code, output) {
+            var success = code === 0;
+            done(success);
+        });
+        shell.cd(oldcwd);
+
+    });
+
+    grunt.registerMultiTask('hastec', 'Grunt plugin for the Haste compiler, turns Haskell into JavaScript', function() {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
         });
